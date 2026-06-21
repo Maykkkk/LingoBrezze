@@ -48,15 +48,21 @@ class HomeScreen extends StatelessWidget {
           if (provider.words.isEmpty) {
             return Center(
               child: Padding(
-                padding: const EdgeInsets.all(24.0),
+                padding: const EdgeInsets.symmetric(horizontal: 28.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Text("You haven't saved any words yet.", textAlign: TextAlign.center, style: TextStyle(fontSize: 18)),
-                    const SizedBox(height: 12),
-                    ElevatedButton(
+                    Icon(Icons.bookmarks, size: 64, color: Colors.indigo.shade200),
+                    const SizedBox(height: 16),
+                    const Text("You haven't saved any words yet.", textAlign: TextAlign.center, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+                    const SizedBox(height: 8),
+                    const Text('Save words you want to practice later — tap + to add one.', textAlign: TextAlign.center, style: TextStyle(color: Colors.black54)),
+                    const SizedBox(height: 16),
+                    ElevatedButton.icon(
                       onPressed: () => _showAddDialog(context),
-                      child: const Text('Add Your First Word'),
+                      icon: const Icon(Icons.add),
+                      label: const Text('Add Your First Word'),
+                      style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
                     )
                   ],
                 ),

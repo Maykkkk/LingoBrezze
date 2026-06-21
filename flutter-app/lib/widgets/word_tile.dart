@@ -8,17 +8,30 @@ class WordTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(word.word, style: Theme.of(context).textTheme.titleLarge),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    word.word,
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 8),
-            Text('Meaning: ${word.meaning}'),
-            const SizedBox(height: 4),
-            Text('Translation: ${word.translation}'),
+            Text('Meaning: ${word.meaning}', style: const TextStyle(color: Colors.black87)),
+            const SizedBox(height: 6),
+            Text('Translation: ${word.translation}', style: const TextStyle(color: Colors.indigo)),
           ],
         ),
       ),
